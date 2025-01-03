@@ -38,54 +38,94 @@ Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
 
+![Screenshot 2025-01-02 200923](https://github.com/user-attachments/assets/185a639b-aa1b-497d-8140-bcdf358c4306)
+
+![Screenshot 2025-01-02 201003](https://github.com/user-attachments/assets/387b4626-3b4e-476c-a716-0783404571d2)
+
+
+
 **Procedure**
 
-Write the detailed procedure here
+type the program in quartes software.
 
+2 compile and run rhe program .
+
+3 generate the RTL schematic and save the logic diagram.
+
+4 create nodes for inputs and outputs to generate the timing diagram .
+
+5 for different input combinations generate the timing diagram
 **Program:**
+FULL ADDER
 
-/*
-module fa(a,b,cin,sum,carry);
+module fulladder(
 
-input a,b,cin;
+input a,b,c,
 
-output sum,carry;
+output sum,carry);
 
-assign sum=( (a ^ b)^c);
+wire w1,w2,w3;
 
-assign carry= ( (a & b)| ( cin &(a ^ b ));
+assign sum=a^b^c; assign w1=a&b;
 
-endmodule
+assign w2=b&c;
 
-FULL SUBTRACTOR
+assign w3=c&a;
 
-module fs(a,b,difference,borrow);
-
-input a,b,bin;
-
-output difference,borrow;
-
-assign difference= ( (a ^ b)^bin);
-
-assign borrow= ( ( a & b)| ( bin & ((a ^ b )));
+assign carry=w1|w2|w3;
 
 endmodule
 
-Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
+FULL SUBRACTOR
 
-Developed by:R.mounish vamsi kumr 
+module fullsub(a,b,c,diff,borr);
+
+input a,b,c;
+
+output diff,borr;
+
+wire w1,w2,w3,w4,w5,w6;
+
+xor g1(diff,a,b,c);
+
+and g2(w4,w1,b);
+
+and g3(w5,w1,b);
+
+nd g4(w6,b,c);
+
+or g5(borr,w4,w5,w6);
+
+endmodule
+
+Developed by:R.mounish vamsi kumar 
 
 RegisterNumber:24003774
 */
 
 **RTL Schematic**
 
-![Screenshot 2024-12-22 091351](https://github.com/user-attachments/assets/292b59b9-b7b0-47ba-8007-443157d181ae)
+FULL ADDER
+
+![Screenshot 2025-01-02 200413](https://github.com/user-attachments/assets/0b184bf4-37a9-4e00-a94d-d3497fbb5b12)
+
+FULL SUBTRACTOR
+
+![Screenshot 2025-01-02 200450](https://github.com/user-attachments/assets/0d074628-a86a-466f-ae0f-79b76e5844ac)
 
 
 **Output Timing Waveform**
 
-![Screenshot 2024-12-22 091439](https://github.com/user-attachments/assets/0ab5b848-1b3b-4661-bb00-e5e05501a42a)
+FULL ADDER
+
+![Screenshot 2025-01-02 200137](https://github.com/user-attachments/assets/5bc5008f-16cb-4101-ade4-d466979be2ac)
+
+FULL SUBTRACTOR
+
+
+![Screenshot 2025-01-02 200210](https://github.com/user-attachments/assets/6816803f-8ada-4b20-a30c-230e404c6a13)
+
+
 
 
 **Result:**
